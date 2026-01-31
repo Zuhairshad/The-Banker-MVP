@@ -105,10 +105,10 @@ const specs = swaggerJsdoc(options);
  * @param app - Express application instance
  */
 export const setupSwagger = (app: Express): void => {
-    app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs, {
-        customCss: '.swagger-ui .topbar { display: none }',
-        customSiteTitle: 'Banker Expert API Docs',
-    }));
+    app.use('/api/docs', swaggerUi.serve as any, swaggerUi.setup(specs, {
+        explorer: true,
+        customSiteTitle: 'Banker Expert API Documentation',
+    }) as any);
 
     // Expose raw OpenAPI spec as JSON
     app.get('/api/docs.json', (req, res) => {

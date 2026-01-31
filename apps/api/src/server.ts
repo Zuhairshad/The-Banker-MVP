@@ -36,7 +36,7 @@ app.use(requestLogger);
 
 // General rate limiting (skip in test)
 if (env.NODE_ENV !== 'test') {
-    app.use(generalLimiter);
+    app.use(generalLimiter as any);
 }
 
 // Setup Swagger documentation
@@ -93,7 +93,7 @@ app.use(errorHandler);
 const PORT = env.PORT;
 
 // Only start server if not in test mode and not on Vercel
-if (env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+if (env.NODE_ENV !== 'test' && !(process.env as any).VERCEL) {
     app.listen(PORT, () => {
         logger.info(`Server running on port ${PORT}`);
         logger.info(`Environment: ${env.NODE_ENV}`);
