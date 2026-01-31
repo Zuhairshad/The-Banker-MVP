@@ -9,7 +9,7 @@ import { useData } from '@/contexts/data-context';
 import { api } from '@/lib/api-client';
 
 export function ConnectWalletCard() {
-    const { user } = useAuth();
+    const { } = useAuth();
     const { wallets, generateAnalysis, refreshData } = useData();
     const [isConnecting, setIsConnecting] = useState(false);
     const [error, setError] = useState<string | null>(null);
