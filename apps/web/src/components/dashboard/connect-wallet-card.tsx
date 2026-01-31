@@ -10,7 +10,7 @@ import { api } from '@/lib/api-client';
 
 export function ConnectWalletCard() {
     const { } = useAuth();
-    const { wallets, generateAnalysis, refreshData } = useData();
+    const { generateAnalysis, refreshData } = useData();
     const [isConnecting, setIsConnecting] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
