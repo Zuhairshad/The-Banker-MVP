@@ -14,6 +14,11 @@
         "test:e2e:debug": "playwright test --debug",
         "clean": "rm -rf .next .turbo node_modules"
     },
+    "eslintConfig": {
+        "extends": [
+            "next/core-web-vitals"
+        ]
+    },
     "dependencies": {
         "@hookform/resolvers": "^5.2.2",
         "@radix-ui/react-avatar": "^1.1.11",
