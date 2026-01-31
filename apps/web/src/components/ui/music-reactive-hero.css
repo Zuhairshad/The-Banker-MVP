@@ -1,0 +1,227 @@
+/* Music Reactive Hero Section Styles */
+
+.music-reactive-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.visualization-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    animation: fadeInUp 1s ease-out;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.hero-tagline {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 15vw, 10rem);
+    font-weight: 900;
+    line-height: 0.85;
+    margin: 0;
+    text-shadow: 0 0 60px rgba(255, 255, 255, 0.4),
+        0 0 120px rgba(255, 255, 255, 0.2);
+    letter-spacing: -0.02em;
+}
+
+.title-line {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 2.5rem auto 1.5rem;
+    opacity: 0.5;
+    line-height: 1.6;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.hero-credit {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+
+.play-button {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 20;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.play-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.play-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.play-button.playing {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.audio-progress {
+    position: absolute;
+    top: 4.5rem;
+    left: 1.5rem;
+    width: 100px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1px;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    transition: width 0.1s linear;
+}
+
+.corner-info {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.7rem;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    letter-spacing: 0.05em;
+}
+
+.fps-counter {
+    text-transform: uppercase;
+}
+
+.bottom-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+}
+
+.artist-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.artist-name {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.social-handle {
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-tagline {
+        font-size: 0.7rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.875rem;
+        padding: 0 1rem;
+    }
+
+    .play-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.65rem;
+    }
+
+    .bottom-info {
+        left: 1rem;
+        bottom: 1.5rem;
+    }
+
+    .corner-info {
+        right: 1rem;
+        top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .bottom-info,
+    .corner-info {
+        display: none;
+    }
+}
