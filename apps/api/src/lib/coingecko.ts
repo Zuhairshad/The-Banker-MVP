@@ -111,12 +111,13 @@ export const getCurrentPrices = async (): Promise<CoinGeckoPrices> => {
         }
 
         const response = await fetch(url, { headers });
+        const res = response as any;
 
-        if (!response.ok) {
-            throw new Error(`CoinGecko API error: ${response.status}`);
+        if (!res.ok) {
+            throw new Error(`CoinGecko API error: ${res.status}`);
         }
 
-        const data = await response.json() as CoinGeckoPrices;
+        const data = await res.json() as CoinGeckoPrices;
 
         // Cache the result
         setCache(cacheKey, data);
@@ -325,12 +326,13 @@ export const getHistoricalPrices = async (
         }
 
         const response = await fetch(url, { headers });
+        const res = response as any;
 
-        if (!response.ok) {
-            throw new Error(`CoinGecko API error: ${response.status}`);
+        if (!res.ok) {
+            throw new Error(`CoinGecko API error: ${res.status}`);
         }
 
-        const data = await response.json() as any;
+        const data = await res.json();
 
         const prices = (data.prices as Array<[number, number]>).map(([timestamp, price]) => ({
             timestamp,
