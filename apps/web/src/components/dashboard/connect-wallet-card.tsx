@@ -36,7 +36,7 @@ export function ConnectWalletCard() {
                 throw new Error('No accounts found.');
             }
 
-            address = accounts[0];
+            address = accounts[0]!;
 
             // Send to backend
             await api.connectWallet(address, 'ethereum', 'MetaMask Wallet');
