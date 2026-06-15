@@ -2,6 +2,10 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
+    eslint: {
+        // Lint runs in CI separately; do not block production builds on style errors
+        ignoreDuringBuilds: true,
+    },
     poweredByHeader: false,
     experimental: {
         typedRoutes: true,
